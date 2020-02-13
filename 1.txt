@@ -1,0 +1,97 @@
+2020-01-06 18:09:44.645 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.DefaultServerMessageListenerImpl.onTrxMessage:74 -server received:SeataMergeMessage xid=192.168.202.137:8091:2034557021,branchType=AT,resourceId=jdbc:mysql://192.168.202.137:3306/seata_order,lockK
+ey=order:4242108
+,clientIp:192.168.202.138,vgroup:my_test_tx_group
+2020-01-06 18:09:44.645 DEBUG[NettyServerNIOWorker_1_16]io.seata.core.rpc.netty.RpcServer.debugLog:113 -read:SeataMergeMessage xid=192.168.202.137:8091:2034556979,branchId=2034556998,resourceId=null,status=PhaseOne_Done,applicationData=null
+
+2020-01-06 18:09:44.645 DEBUG[NettyServerNIOWorker_1_16]io.seata.core.rpc.netty.AbstractRpcRemoting.channelRead:377 -io.seata.core.rpc.netty.RpcServer@7564cb2f msgId:881246, body:SeataMergeMessage xid=192.168.202.137:8091:2034556979,branchId=2034556998,resourceId=null,s
+tatus=PhaseOne_Done,applicationData=null
+
+2020-01-06 18:09:44.645 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.DefaultServerMessageListenerImpl.onTrxMessage:74 -server received:SeataMergeMessage xid=192.168.202.137:8091:2034556979,branchId=2034556998,resourceId=null,status=PhaseOne_Done,applicationData=nul
+l
+,clientIp:192.168.202.138,vgroup:my_test_tx_group
+2020-01-06 18:09:44.645 DEBUG[NettyServerNIOWorker_1_16]io.seata.core.rpc.netty.RpcServer.debugLog:113 -read:SeataMergeMessage xid=192.168.202.137:8091:2034556282,branchType=AT,resourceId=jdbc:mysql://192.168.202.137:3306/seata_storage,lockKey=storage:2
+
+2020-01-06 18:09:44.645 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:126 -checkLockSQL:select xid, transaction_id, branch_id, resource_id, table_name, pk, row_key, gmt_create, gmt_modified from lock_table where row_key in (?)
+2020-01-06 18:09:44.646 DEBUG[NettyServerNIOWorker_1_16]io.seata.core.rpc.netty.AbstractRpcRemoting.channelRead:377 -io.seata.core.rpc.netty.RpcServer@7564cb2f msgId:461229, body:SeataMergeMessage xid=192.168.202.137:8091:2034556282,branchType=AT,resourceId=jdbc:mysql:/
+/192.168.202.137:3306/seata_storage,lockKey=storage:2
+
+2020-01-06 18:09:44.646 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.DefaultServerMessageListenerImpl.onTrxMessage:74 -server received:SeataMergeMessage xid=192.168.202.137:8091:2034556282,branchType=AT,resourceId=jdbc:mysql://192.168.202.137:3306/seata_storage,loc
+kKey=storage:2
+,clientIp:192.168.202.138,vgroup:my_test_tx_group
+2020-01-06 18:09:44.646 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:149 -canlock:true,dbExistedRowKeys:[]
+2020-01-06 18:09:44.646 INFO [ServerHandlerThread_1_500]io.seata.server.coordinator.DefaultCore.begin:154 -Successfully begin global transaction xid = 192.168.202.137:8091:2034557033
+2020-01-06 18:09:44.646 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:126 -checkLockSQL:select xid, transaction_id, branch_id, resource_id, table_name, pk, row_key, gmt_create, gmt_modified from lock_table where row_key in (?)
+2020-01-06 18:09:44.646 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.netty.AbstractRpcRemoting.sendResponse:341 -send response:MergeResultMessage xid=192.168.202.137:8091:2034557033;extraData=null;
+,channel:[id: 0xcdbc25c9, L:/192.168.202.137:8091 - R:/192.168.202.138:40016]
+2020-01-06 18:09:44.646 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.netty.AbstractRpcRemoting.sendResponse:341 -send response:MergeResultMessage globalStatus=Committed,ResultCode=Success,Msg=null
+,channel:[id: 0xcdbc25c9, L:/192.168.202.137:8091 - R:/192.168.202.138:40016]
+2020-01-06 18:09:44.646 INFO [ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:140 -Global lock on [storage:9] is holding by xid 192.168.202.137:8091:2034556712 branchId 2034556981
+2020-01-06 18:09:44.647 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:126 -checkLockSQL:select xid, transaction_id, branch_id, resource_id, table_name, pk, row_key, gmt_create, gmt_modified from lock_table where row_key in (?)
+2020-01-06 18:09:44.647 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:149 -canlock:false,dbExistedRowKeys:[]
+2020-01-06 18:09:44.647 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:126 -checkLockSQL:select xid, transaction_id, branch_id, resource_id, table_name, pk, row_key, gmt_create, gmt_modified from lock_table where row_key in (?)
+2020-01-06 18:09:44.647 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:149 -canlock:true,dbExistedRowKeys:[]
+2020-01-06 18:09:44.647 ERROR[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:152 -acquireLock fail,rowkey:[xid=192.168.202.137:8091:2034556937;transactionId=2034556937;branchId=2034557037;resourceId=jdbc:mysql://192.168.202.137:3306/se
+ata_storage;tableName=storage;pk=9;rowKey=jdbc:mysql://192.168.202.137:3306/seata_storage^^^storage^^^9;]
+2020-01-06 18:09:44.647 ERROR[ServerHandlerThread_1_500]io.seata.core.exception.AbstractExceptionHandler.exceptionHandleTemplate:120 -Catch TransactionException while do RPC, request: xid=192.168.202.137:8091:2034556937,branchType=AT,resourceId=jdbc:mysql://192.168.202.
+137:3306/seata_storage,lockKey=storage:9
+io.seata.core.exception.BranchTransactionException: Global lock acquire failed xid = 192.168.202.137:8091:2034556937 branchId = 2034557037
+        at io.seata.server.coordinator.DefaultCore.lambda$branchRegister$0(DefaultCore.java:87)
+        at io.seata.server.session.GlobalSession.lockAndExcute(GlobalSession.java:605)
+        at io.seata.server.coordinator.DefaultCore.branchRegister(DefaultCore.java:70)
+        at io.seata.server.coordinator.DefaultCoordinator.doBranchRegister(DefaultCoordinator.java:203)
+        at io.seata.server.AbstractTCInboundHandler$4.execute(AbstractTCInboundHandler.java:172)
+        at io.seata.server.AbstractTCInboundHandler$4.execute(AbstractTCInboundHandler.java:167)
+        at io.seata.core.exception.AbstractExceptionHandler.exceptionHandleTemplate(AbstractExceptionHandler.java:117)
+        at io.seata.server.AbstractTCInboundHandler.handle(AbstractTCInboundHandler.java:167)
+        at io.seata.core.protocol.transaction.BranchRegisterRequest.handle(BranchRegisterRequest.java:136)
+        at io.seata.server.coordinator.DefaultCoordinator.onRequest(DefaultCoordinator.java:544)
+        at io.seata.core.rpc.DefaultServerMessageListenerImpl.onTrxMessage(DefaultServerMessageListenerImpl.java:91)
+        at io.seata.core.rpc.netty.RpcServer.dispatch(RpcServer.java:295)
+        at io.seata.core.rpc.netty.AbstractRpcRemoting$3.run(AbstractRpcRemoting.java:384)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.lang.Thread.run(Thread.java:748)
+2020-01-06 18:09:44.648 DEBUG[ServerHandlerThread_1_500]io.seata.core.rpc.netty.AbstractRpcRemoting.sendResponse:341 -send response:MergeResultMessage BranchRegisterResponse: branchId=0,result code =Failed,getMsg =TransactionException[Global lock acquire failed xid = 192.168.202.137:8091:2034556937 branchId = 2034557037]
+,channel:[id: 0xa70fb636, L:/192.168.202.137:8091 - R:/192.168.202.138:39904]
+2020-01-06 18:09:44.648 DEBUG[ServerHandlerThread_1_500]io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock:149 -canlock:true,dbExistedRowKeys:[]
+com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException: Deadlock found when trying to get lock; try restarting transaction
+        at sun.reflect.GeneratedConstructorAccessor26.newInstance(Unknown Source)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+        at com.mysql.jdbc.Util.getInstance(Util.java:384)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1064)
+        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4232)
+        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4164)
+        at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2615)
+        at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2776)
+        at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2838)
+        at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2082)
+        at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2334)
+        at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2262)
+        at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2246)
+        at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+        at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+        at io.seata.core.store.db.LockStoreDataBaseDAO.doAcquireLock(LockStoreDataBaseDAO.java:321)
+        at io.seata.core.store.db.LockStoreDataBaseDAO.acquireLock(LockStoreDataBaseDAO.java:169)
+        at io.seata.server.lock.db.DataBaseLocker.acquireLock(DataBaseLocker.java:64)
+        at io.seata.server.lock.AbstractLockManager.acquireLock(AbstractLockManager.java:59)
+        at io.seata.server.session.BranchSession.lock(BranchSession.java:273)
+        at io.seata.server.coordinator.DefaultCore.lambda$branchRegister$0(DefaultCore.java:85)
+        at io.seata.server.session.GlobalSession.lockAndExcute(GlobalSession.java:605)
+        at io.seata.server.coordinator.DefaultCore.branchRegister(DefaultCore.java:70)
+        at io.seata.server.coordinator.DefaultCoordinator.doBranchRegister(DefaultCoordinator.java:203)
+        at io.seata.server.AbstractTCInboundHandler$4.execute(AbstractTCInboundHandler.java:172)
+        at io.seata.server.AbstractTCInboundHandler$4.execute(AbstractTCInboundHandler.java:167)
+        at io.seata.core.exception.AbstractExceptionHandler.exceptionHandleTemplate(AbstractExceptionHandler.java:117)
+        at io.seata.server.AbstractTCInboundHandler.handle(AbstractTCInboundHandler.java:167)
+        at io.seata.core.protocol.transaction.BranchRegisterRequest.handle(BranchRegisterRequest.java:136)
+        at io.seata.server.coordinator.DefaultCoordinator.onRequest(DefaultCoordinator.java:544)
+        at io.seata.core.rpc.DefaultServerMessageListenerImpl.onTrxMessage(DefaultServerMessageListenerImpl.java:91)
+        at io.seata.core.rpc.netty.RpcServer.dispatch(RpcServer.java:295)
+        at io.seata.core.rpc.netty.AbstractRpcRemoting$3.run(AbstractRpcRemoting.java:384)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.lang.Thread.run(Thread.java:748)
